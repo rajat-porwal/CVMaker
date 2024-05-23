@@ -22,3 +22,30 @@ onst ProfessionalSkills = () => {
         [name]: value
       });
     };
+    
+    return (
+        <div className="section">
+          <h2>Professional Skills</h2>
+          {isEditing ? (
+            <form onSubmit={handleSubmit}>
+              <textarea
+                name="programmingLanguages"
+                value={skills.programmingLanguages}
+                onChange={handleChange}
+                placeholder="Programming Languages"
+              />
+              <textarea
+                name="designTools"
+                value={skills.designTools}
+                onChange={handleChange}
+                placeholder="Design Tools"
+              />
+              <textarea
+                name="otherSkills"
+                value={skills.otherSkills}
+                onChange={handleChange}
+                placeholder="Other Notable Skills"
+              />
+              <button type="submit">Submit</button>
+            </form>
+          ) :
