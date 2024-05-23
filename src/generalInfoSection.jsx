@@ -1,11 +1,11 @@
 import { useState } from "react";
-function SubmitBtn({firstName, lastName}){
+function SubmitBtn({firstName, lastName, email}){
     const [disabled, setDisabled] = useState(false);
     const submitAction = () => {
         setDisabled(true);
         const fullName = `${firstName} ${lastName}`;
         const paragraph = document.createElement("p");
-        paragraph.textContent = fullName;
+        paragraph.textContent = `Name: ${fullName}, Email: ${email}`;g;
         document.getElementById("CVHtml").appendChild(paragraph);
         const inputs = document.querySelectorAll("input[type='text']");
         inputs.forEach(input => input.classList.add("invisible"));
@@ -29,7 +29,8 @@ function EditBtn(){
 export function GeneralInfoSection() {
     const [name, setname] = useState({
         firstName:'',
-        lastName:''
+        lastName:'',
+        email: '',
     });
     
     return(
@@ -38,9 +39,11 @@ export function GeneralInfoSection() {
 
            <input type="text" placeholder="First Name" value={name.firstName} onChange={((e) => setname({...name, firstName: e.target.value}))} />
            <input type="text" placeholder="Last Name" value={name.lastName} onChange={((e) => setname({...name, lastName:e.target.value}))} />
-           <SubmitBtn firstName = {name.firstName} lastName = {name.lastName}  />
-           <EditBtn />
-           <div id="CVHtml"></div>
-        </div>
+           <input type="email"  placeholder="Email"value={name.email}onChange={e => setname({ ...name, email: e.target.value })}
+      />
+      <SubmitBtn firstName={name.firstName} lastName={name.lastName} email={name.email} />
+      <EditBtn />
+      <div id="CVHtml"></div>
+    </div>
     );
 }
