@@ -1,6 +1,6 @@
-import GeneralInfo from './GeneralInfo';
-import EducationExperience from './EducationExperience';
-import PracticalExperience from './PracticalExperience';
+import GeneralInfo from './generalInfoSection';
+import EducationExperience from './education';
+import PracticalExperience from './experience';
 
 const CVForm = () => {
   return (

@@ -25,8 +25,8 @@ const PracticalExperience = () => {
           <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Company Name" />
           <input type="text" value={position} onChange={(e) => setPosition(e.target.value)} placeholder="Position Title" />
           <textarea value={responsibilities} onChange={(e) => setResponsibilities(e.target.value)} placeholder="Main Responsibilities" />
-          <input type="text" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} placeholder="Date From" />
-          <input type="text" value={dateTo} onChange={(e) => setDateTo(e.target.value)} placeholder="Date To" />
+          <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} placeholder="Date From" />
+          <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} placeholder="Date To" />
           <button type="submit">Submit</button>
         </form>
       ) : (

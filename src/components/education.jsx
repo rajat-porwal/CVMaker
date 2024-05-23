@@ -22,7 +22,7 @@ const EducationExperience = () => {
         <form onSubmit={handleSubmit}>
           <input type="text" value={school} onChange={(e) => setSchool(e.target.value)} placeholder="School Name" />
           <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title of Study" />
-          <input type="text" value={date} onChange={(e) => setDate(e.target.value)} placeholder="Date of Study" />
+          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} placeholder="Date of Study" />
           <button type="submit">Submit</button>
         </form>
       ) : (
