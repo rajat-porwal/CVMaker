@@ -1,26 +1,25 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 
-const PracticalExperience = ({ experience, onSubmit, onEdit }) => {
+const PracticalExperience = () => {
   const [isEditing, setIsEditing] = useState(true);
-  const [company, setCompany] = useState(experience.company);
-  const [position, setPosition] = useState(experience.position);
-  const [responsibilities, setResponsibilities] = useState(experience.responsibilities);
-  const [dateFrom, setDateFrom] = useState(experience.dateFrom);
-  const [dateTo, setDateTo] = useState(experience.dateTo);
+  const [company, setCompany] = useState('');
+  const [position, setPosition] = useState('');
+  const [responsibilities, setResponsibilities] = useState('');
+  const [dateFrom, setDateFrom] = useState('');
+  const [dateTo, setDateTo] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ company, position, responsibilities, dateFrom, dateTo });
     setIsEditing(false);
   };
 
   const handleEdit = () => {
     setIsEditing(true);
-    onEdit();
   };
 
   return (
     <div>
+      <h2>Practical Experience</h2>
       {isEditing ? (
         <form onSubmit={handleSubmit}>
           <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Company Name" />
