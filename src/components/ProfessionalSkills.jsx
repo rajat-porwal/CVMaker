@@ -1,4 +1,6 @@
-onst ProfessionalSkills = () => {
+import { useState } from "react";
+
+const ProfessionalSkills = () => {
     const [isEditing, setIsEditing] = useState(true);
     const [skills, setSkills] = useState({
       programmingLanguages: '',
