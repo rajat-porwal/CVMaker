@@ -1,4 +1,4 @@
-function SubmitEducation({ schoolName, studyTitle, dateOfStudy }) {
+function SubmitEducation({ schoolName, studyTitle, dateOfStudy, status, setStatus }) {
     const [disabled, setDisabled] = useState(false);
   
     const submitAction = () => {
@@ -17,3 +17,4 @@ function SubmitEducation({ schoolName, studyTitle, dateOfStudy }) {
         </button>
       );
 }
+
