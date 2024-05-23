@@ -1,4 +1,3 @@
-import React from 'react';
 import GeneralInfo from './GeneralInfo';
 import EducationExperience from './EducationExperience';
 import PracticalExperience from './PracticalExperience';
