@@ -22,7 +22,7 @@ onst ProfessionalSkills = () => {
         [name]: value
       });
     };
-    
+
     return (
         <div className="section">
           <h2>Professional Skills</h2>
@@ -48,4 +48,16 @@ onst ProfessionalSkills = () => {
               />
               <button type="submit">Submit</button>
             </form>
-          ) :
+          ) :(
+        <div>
+          <p>Programming Languages: {skills.programmingLanguages}</p>
+          <p>Design Tools: {skills.designTools}</p>
+          <p>Other Notable Skills: {skills.otherSkills}</p>
+          <button onClick={handleEdit}>Edit</button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ProfessionalSkills;
