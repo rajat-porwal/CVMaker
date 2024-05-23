@@ -35,4 +35,7 @@ const EducationExperience = ({ education, onSubmit, onEdit }) => {
             </div>
           )}
         </div>
-
+        );
+};
+    
+export default EducationExperience;
