@@ -1,20 +1,20 @@
-function SubmitEducation({ schoolName, studyTitle, dateOfStudy, status, setStatus }) {
-    const [disabled, setDisabled] = useState(false);
-  
-    const submitAction = () => {
-      setDisabled(true);
-      const educationInfo = `${studyTitle} at ${schoolName}, studied from ${dateOfStudy}`;
-      const paragraph = document.createElement('p');
-      paragraph.textContent = educationInfo;
-      document.getElementById('CVHtml').appendChild(paragraph);
-      const inputs = document.querySelectorAll("input[type='text']");
-      inputs.forEach(input => input.classList.add('invisible'));
+import { useState } from "react"
+
+const EducationExperience = ({ education, onSubmit, onEdit }) => {
+    const [isEditing, setIsEditing] = useState(true);
+    const [school, setSchool] = useState(education.school);
+    const [title, setTitle] = useState(education.title);
+    const [date, setDate] = useState(education.date);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onSubmit({ school, title, date });
+        setIsEditing(false);
     };
 
-    return (
-        <button onClick={submitAction} disabled={disabled}>
-          Submit Education
-        </button>
-      );
-}
+    const handleEdit = () => {
+        setIsEditing(true);
+        onEdit();
+    };
+
 
