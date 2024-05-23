@@ -11,7 +11,7 @@ function SubmitBtn({firstName, lastName, email,status ,setStatus}){
         setStatus(true);
     };
     return(
-        <button onClick={submitAction} disabled= {status}>Submit</button>
+        <button id="SubmitBtn" onClick={submitAction} disabled= {status}className={status ? "disabled" : ""}>Submit</button>
     );
 }
 
@@ -43,7 +43,7 @@ export function GeneralInfoSection() {
         setStatus(false);
     }
     return(
-        <div>
+        <div className="general-info">
            <h1>Please Input General Info </h1> 
 
            <input type="text" placeholder="First Name" value={name.firstName} onChange={((e) => setname({...name, firstName: e.target.value}))} />
