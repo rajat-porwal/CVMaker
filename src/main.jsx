@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './inputStyle.css';
-import  GeneralInfo  from './generalInfoSection';
+import App from './app';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <GeneralInfo />
+    <App/>
   </React.StrictMode>,
 )
