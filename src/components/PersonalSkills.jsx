@@ -1,38 +1,16 @@
-import { useState } from 'react';
-
-const PersonalSkills = () => {
-  const [isEditing, setIsEditing] = useState(true);
-  const [skills, setSkills] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsEditing(false);
-  };
-
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
-
-  const handleChange = (e) => {
-    setSkills(e.target.value);
-  };
-
+const PersonalSkills = ({ isEditing, data, handleChange }) => {
   return (
     <div className="section">
       <h2>Personal Skills</h2>
       {isEditing ? (
-        <form onSubmit={handleSubmit}>
-          <textarea
-            value={skills}
-            onChange={handleChange}
-            placeholder="Personal Skills"
-          />
-          <button type="submit">Submit</button>
-        </form>
+        <textarea
+          value={data}
+          onChange={(e) => handleChange(e.target.value)}
+          placeholder="Personal Skills"
+        />
       ) : (
         <div>
-          <p>{skills}</p>
-          <button onClick={handleEdit}>Edit</button>
+          <p>{data}</p>
         </div>
       )}
     </div>

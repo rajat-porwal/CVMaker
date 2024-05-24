@@ -1,36 +1,33 @@
-import { useState } from 'react';
-
-const EducationExperience = () => {
-  const [isEditing, setIsEditing] = useState(true);
-  const [school, setSchool] = useState('');
-  const [title, setTitle] = useState('');
-  const [date, setDate] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsEditing(false);
-  };
-
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
-
+const EducationExperience = ({ isEditing, data, handleChange }) => {
   return (
-    <div>
+    <div className="section">
       <h2>Educational Experience</h2>
       {isEditing ? (
-        <form onSubmit={handleSubmit}>
-          <input type="text" value={school} onChange={(e) => setSchool(e.target.value)} placeholder="School Name" />
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title of Study" />
-          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} placeholder="Date of Study" />
-          <button type="submit">Submit</button>
-        </form>
+        <div>
+          <input 
+            type="text" 
+            value={data.school} 
+            onChange={(e) => handleChange('school', e.target.value)} 
+            placeholder="School Name" 
+          />
+          <input 
+            type="text" 
+            value={data.title} 
+            onChange={(e) => handleChange('title', e.target.value)} 
+            placeholder="Title of Study" 
+          />
+          <input 
+            type="date" 
+            value={data.date} 
+            onChange={(e) => handleChange('date', e.target.value)} 
+            placeholder="Date of Study" 
+          />
+        </div>
       ) : (
         <div>
-          <p>School Name: {school}</p>
-          <p>Title of Study: {title}</p>
-          <p>Date of Study: {date}</p>
-          <button onClick={handleEdit}>Edit</button>
+          <p>School Name: {data.school}</p>
+          <p>Title of Study: {data.title}</p>
+          <p>Date of Study: {data.date}</p>
         </div>
       )}
     </div>

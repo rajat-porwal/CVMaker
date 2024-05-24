@@ -1,55 +1,26 @@
-import  { useState } from 'react';
-
-const ContactInfo = () => {
-  const [isEditing, setIsEditing] = useState(true);
-  const [contact, setContact] = useState({
-    phone: '',
-    email: ''
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsEditing(false);
-  };
-
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setContact({
-      ...contact,
-      [name]: value
-    });
-  };
-
+const ContactInfo = ({ isEditing, data, handleChange }) => {
   return (
     <div className="section">
       <h2>Contact</h2>
       {isEditing ? (
-        <form onSubmit={handleSubmit}>
+        <div>
           <input
             type="tel"
-            name="phone"
-            value={contact.phone}
-            onChange={handleChange}
+            value={data.phone}
+            onChange={(e) => handleChange('phone', e.target.value)}
             placeholder="Phone"
           />
           <input
             type="email"
-            name="email"
-            value={contact.email}
-            onChange={handleChange}
+            value={data.email}
+            onChange={(e) => handleChange('email', e.target.value)}
             placeholder="Email"
           />
-          <button type="submit">Submit</button>
-        </form>
+        </div>
       ) : (
         <div>
-          <p>Phone: {contact.phone}</p>
-          <p>Email: {contact.email}</p>
-          <button onClick={handleEdit}>Edit</button>
+          <p>Phone: {data.phone}</p>
+          <p>Email: {data.email}</p>
         </div>
       )}
     </div>

@@ -1,45 +1,27 @@
-import { useState } from 'react';
-
-const SocialLinks = () => {
-  const [github, setGithub] = useState('rajat-porwal');
-  const [linkedin, setLinkedin] = useState('javanfriedel');
-  const [isEditing, setIsEditing] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsEditing(false);
-  };
-
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
-
+const SocialLinks = ({ isEditing, data, handleChange }) => {
   return (
     <div className="section">
       <h2>Social</h2>
       {isEditing ? (
-        <form onSubmit={handleSubmit}>
+        <form>
           <label>Github:</label>
           <input
             type="text"
-            value={github}
-            onChange={(e) => setGithub(e.target.value)}
+            value={data.github}
+            onChange={(e) => handleChange('github', e.target.value)}
           />
           <br />
           <label>LinkedIn:</label>
           <input
             type="text"
-            value={linkedin}
-            onChange={(e) => setLinkedin(e.target.value)}
+            value={data.linkedin}
+            onChange={(e) => handleChange('linkedin', e.target.value)}
           />
-          <br />
-          <button type="submit">Submit</button>
         </form>
       ) : (
         <div>
-          <p>Github: {github}</p>
-          <p>LinkedIn: {linkedin}</p>
-          <button onClick={handleEdit}>Edit</button>
+          <p>Github: {data.github}</p>
+          <p>LinkedIn: {data.linkedin}</p>
         </div>
       )}
     </div>
